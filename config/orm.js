@@ -2,10 +2,11 @@
 
 var mySqlConnection = require( '../config/connection.js' );
 
+//Object Relational Mapping
 var orm = {
 
-    selectAll = function( tableName, cbFunction ) {
-        var qStr = 'SELECT * FROM ' + tableName + ';';
+    selectAll = function( cbFunction ) {
+        var qStr = 'SELECT * FROM burgers;';
         mySqlConnection.query( qStr, function( err, result ){
             if ( err ) { throw err }
             console.log( qStr );
@@ -13,8 +14,8 @@ var orm = {
         } );
     },
 
-    insertOne = function( tableName, burgerName, cbFunction ) {
-        var qStr = 'INSERT INTO ' + tableName + '( burger_name, devoured ) VALUES ( "' + burgerName + '", false );';
+    insertOne = function( burgerName, cbFunction ) {
+        var qStr = 'INSERT INTO burgers ( burger_name, devoured ) VALUES ( "' + burgerName + '", false );';
         mySqlConnection.query( qStr, function( err, result ){
             if ( err ) { throw err }
             console.log( qStr );
@@ -22,8 +23,15 @@ var orm = {
         } );
     },
 
-    updateOne = function( tableName, fieldName, newValue ) {
-
+    updateOne = function( id, newValue, cbFunction  ) {
+        var qStr = 'UPDATE burgers SET devoured = ' + newValue + ' WHERE id = ' + id + ';';
+        mySqlConnection.query( qStr, function( err, result ){
+            if ( err ) { throw err }
+            console.log( qStr );
+            cbFunuction( result );
+        });
     }
 
 }
+
+module.exports = orm;
