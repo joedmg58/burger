@@ -7,7 +7,7 @@ var connectionParams = {
     port:   3306,
     user:   'root',
     password: 'joedmg58',
-    databse: 'burgers_db'
+    database: 'burgers_db'
 }
 
 //Creating the connection

@@ -1,0 +1,52 @@
+<h1>Burgers</h1>
+
+<table>
+
+  <!-- row 1 -->
+  <tr>
+
+    <th>Burgers not devoured</th>
+    <th>Enter a burger you want to eat an Click the "Submit" button</th>
+    <th>Devoured burgers</th>
+
+  </tr>
+
+  <!-- row 2 -->
+  <tr>
+
+    <!-- col 1 -->
+    <td>
+      <ul>
+        {{#each burgers}}
+          {{#unless devoured}}
+            <p>{{burger_name}} <button class="devoure-it" data-id="{{id}}">Devoure It !</button></p>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </td>
+
+    <!-- col 2 -->
+    <td>
+      <form id="add-burger" method="POST" action="/api/burgers">
+        <input type="text" id="bn" name="name">
+        <button type="submit">Submit</button>
+      </form>
+    </td>
+
+    <!-- col 3 -->
+    <td>
+      <ul>
+        {{#each burgers}}
+          {{#if devoured}}
+            <p>{{burger_name}}</p>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </td>
+  </tr>
+
+</table>
+
+
+
+

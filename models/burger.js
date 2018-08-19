@@ -3,20 +3,20 @@ var orm = require( '../config/orm.js' );
 
 var burger = {
 
-    all = function( cb ){
+    all: function( cb ){
         orm.selectAll( function( result ){
             cb( result );
         } );
     },
 
-    add = function( name, cb ){
+    add: function( name, cb ){
         orm.insertOne( name, function( result ){
             cb( result );
         } );
     },
 
-    update = function( id, newValue, cb ){
-        orm.updateOne( id, newValue, function( result ){
+    update: function( id, newState, cb ){
+        orm.updateOne( id, newState, function( result ){
             cb( result );
         });
     }
