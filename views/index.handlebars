@@ -1,52 +1,70 @@
-<h1>Burgers</h1>
+<header class="container-fluid bg-warning py-3 centered">
 
-<table>
+  <h1>Eat-Da-Burger !</h1>
 
-  <!-- row 1 -->
-  <tr>
+</header>
 
-    <th>Burgers not devoured</th>
-    <th>Enter a burger you want to eat an Click the "Submit" button</th>
-    <th>Devoured burgers</th>
+<div class="container-fluid">
 
-  </tr>
+  <div class="row">
 
-  <!-- row 2 -->
-  <tr>
+    <!-- Column 1 -->
+    <div class="col-4">
 
-    <!-- col 1 -->
-    <td>
-      <ul>
-        {{#each burgers}}
-          {{#unless devoured}}
-            <p>{{burger_name}} <button class="devoure-it" data-id="{{id}}">Devoure It !</button></p>
-          {{/unless}}
-        {{/each}}
-      </ul>
-    </td>
+      {{#each burgers}}
+        {{#unless devoured}}
+          <div class="row">
 
-    <!-- col 2 -->
-    <td>
+            <div class="col-6">
+              <div class="burger-tablet">{{burger_name}}</div>
+            </div>
+
+            <div class="col-6">
+              <button class="devoure-it" data-id="{{id}}">Devoure It !</button>
+            </div>
+
+          </div>
+        {{/unless}}
+      {{/each}}
+
+    </div>
+
+    <!-- Column 2 --> 
+    <div class="col-4">
+
       <form id="add-burger" method="POST" action="/api/burgers">
         <input type="text" id="bn" name="name">
         <button type="submit">Submit</button>
       </form>
-    </td>
 
-    <!-- col 3 -->
-    <td>
-      <ul>
-        {{#each burgers}}
-          {{#if devoured}}
-            <p>{{burger_name}}</p>
-          {{/if}}
-        {{/each}}
-      </ul>
-    </td>
-  </tr>
+    </div>
 
-</table>
+    <!-- Column 3 -->
+    <div class="col-4">
 
+      {{#each burgers}}
+        {{#if devoured}}
+          <div class="row">
+            <div class="col-12">
+              <div class="burger-tablet">{{burger_name}}</div>
+            </div>
+          </div>
+        {{/if}}
+      {{/each}}
+
+    </div>
+
+
+  </div> <!-- end of row -->
+
+</div> <!-- end of container -->
+
+
+
+ {{!--    <th>Burgers not devoured</th>
+    <th>Enter a burger you want to eat an Click the "Submit" button</th>
+    <th>Devoured burgers</th>
+ --}}
 
 
 
