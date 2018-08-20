@@ -7,3 +7,5 @@ Each burger in the waiting area also has a Devour it! button. When the user clic
 
 <p>Your app will store every burger in a database, whether devoured or not.</p>
 
+<a href="Eat-Da-Burger!.webm">Check the video to see a working app</a>
+
